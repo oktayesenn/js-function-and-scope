@@ -454,7 +454,9 @@ function playBaseball() {
   console.log("From " + teamCity + "..."); // Does this work?
   console.log("Welcome the " + teamName + "!"); // Does this work?
 
-  pitcherName = "Meg"; // What scope is this?
+  if (teamCity === "Sioux Falls") {
+    const pitcherName = "Meg"; // What scope is this?
+  }
   var batterName = "Perry"; // What scope is this?
 
   console.log(batterName); // Does this work?
@@ -475,7 +477,7 @@ console.log(batterName); // Does this work?
 
 > `teamName` - global (no var)  
 > `teamCity` - global (not in a function)  
-> `pitcherName` - global (no var)  
+> `pitcherName` - block (no because const has block scope)  
 > `batterName` - local to `playBaseball`
 
 </details>
