@@ -365,9 +365,7 @@ However, this single line return can be faked with parentheses (NOT CURLY
 BRACKETS!)
 
 ```js
-const multiply = (num1, num2) => (
-  num1 * num2
-)
+const multiply = (num1, num2) => num1 * num2;
 ```
 
 ## Break (10 min / 1:20)
@@ -392,6 +390,8 @@ Here's a code snippet that demonstrates some of Javascript's fundamental rules
 of scope...
 
 ```js
+var color;
+
 function getColor() {
   color = "red";
 }
@@ -419,11 +419,12 @@ scope**.
 There are four simple rules to remember about scope in JS...
 
 1. Variables created **without** the `var`, `let`, or `const` keywords, no
-   matter where in a program, are placed in the global scope.
+   matter where in a program, are placed in the global scope. :x:
 2. Variables created **with** the `var`, `let`, or `const` keywords are created
    in the current local scope.
 3. All functions create a new local scope.
 4. The current scope includes all outer (enclosing) scopes.
+5. Variables created with `let` or `const` keywords have **block** scope.
 
 > One consequence of rule 3 is that variables defined outside of any function
 > are inherently global, even if the `var` keyword is used.
