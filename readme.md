@@ -540,16 +540,8 @@ function sayHello() {
 Write a small piece of code that meets the following requirements. Identify and
 put a comment next to each variable identifying its scope.
 
-- Has a global variable
-- Has at least 1 variable in each function
-- Has at least 1 function with parameters
-- The function with parameters should modify that input and return something new
-
-Some ideas for inspiration:
-
-- Name scrambler (takes a string name input and modifies it in some way)
-- Take two numbers and return the square root of the difference
-- A function that shuffles an array.
+- secretEncoder: Takes a string name input and modifies it by substituting each letter in the string with a unique number or new character and returns the "encoded" string.
+- secretDecoderRing: Takes an "encoded" string and returns the original decoded value.
 
 ### Bonus: Immediately-Invoked Function Expressions
 
