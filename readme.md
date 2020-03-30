@@ -182,7 +182,7 @@ console.log(newString);
 ```
 
 ```js
-const splitMe = "I am the eggman I am the walrus";
+let splitMe = "I am the eggman I am the walrus";
 
 function splitString() {
   splitMe.split(" ");
