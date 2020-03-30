@@ -1,6 +1,6 @@
 # Functions and Scope
 
-## Framing (5 min / 0:05)
+## Framing
 
 We've learned a lot of things that are fundamental to programming, such as
 primitive and complex data types, conditionals, and loops. However, we still
@@ -20,17 +20,11 @@ too.
 
 ## Learning Objectives
 
-### Functions
-
-- Describe what a JavaScript function is
 - Recognize the parts of a function
 - Write a function in JavaScript using a declaration and an expression
 - State the difference between a function's output and side effects
 - Differentiate between referencing and invoking a function
 - Define hoisting
-
-### Scope
-
 - Describe scope and how it governs how data is able to be accessed in code
 
 ## Functions
@@ -39,10 +33,6 @@ too.
 
 - Fundamental component of JavaScript
 - A reusable block of JavaScript code used to perform a task
-- Simply put, a function is a block of code that takes an input, processes that
-  input and then produces some form of output
-
----
 
 **Why do we use functions?**
 
@@ -50,37 +40,63 @@ Benefits of functions:
 
 - Reusability
 - DRYness
-- Naming convention (describes intent)
+- Code Clarity
 
----
-
-### Recognize the Parts (20 min / 0:25)
-
-**What are the components of a function?**
+### Recognize the Parts of a Function
 
 #### Function Container
 
-```js
-function multiply() {}
-```
-
-#### Input Parameters (or Arguments)
+Notice that there is a pattern in JavaScript syntax.
 
 ```js
-function multiply(num1, num2) {
-  // now you have two variables you can access
-  // num1 and num2
+// start with a keyword
+// followed by parens
+// followed by curly braces containing a code block
+
+for (/* expressions */) { 
+  /* code block */
+}
+
+if (/* expressions */) {
+  /* code block */
 }
 ```
 
-> When we declare a function that takes input values, we call these values
-> parameters.
+Functions follow this pattern too.
 
-> Conversely, when we _call_ a function and pass values into it, those values
-> are called arguments.
+```js
+function (/* parameters */) {
+  /* code block */
+}
+```
 
-> These terms are often used interchangeably, which is okay. But knowing the
-> difference can come in handy.
+Often, we give our functions a descriptive name as well.  The name follows the `function` keyword.
+
+```js
+function multiply(/* parameters */) {
+  /* code block */
+}
+```
+
+#### Parameters
+
+_Parameters_ are variables listed as a part of the function definition.  The names given to parameters are used to access the values we pass to the function known as _arguments_.
+
+```js
+function multiply(num1, num2) {
+  // now you have two variables you can access inside this function
+  // num1 and num2 are parameters
+}
+```
+When we _call_ (or _invoke_) a function and pass values into it, those values are the function's arguments.
+
+```js
+multiply(2, 3) // 2 and 3 are arguments
+```
+
+Arguments map to the parameter names by the order they appear in the parentheses when the function is invoked.
+
+<img src="https://media.git.generalassemb.ly/user/17300/files/4e9fb780-7258-11ea-8529-4c45b37401e3" alt="figure showing how arguments map to parameters"/>
 
 #### Default/Optional Parameters
 
@@ -119,15 +135,15 @@ multiply(2, 5);
 multiply;
 ```
 
-> When you pass a function into another function as a parameter, do you call it
-> or reference it?
-
 #### Output and Side Effects
 
 ```js
 function multiply(num1, num2) {
   return num1 * num2; // Output
 }
+
+const result = multiply(6, 5)
+console.log(result) // What is output?
 ```
 
 - Output: What the function evaluates to - noted by keyword `return`
@@ -138,12 +154,12 @@ function multiply(num1, num2) {
 let num2 = 5;
 
 function multiply(num1) {
-  num2 = num1 * num2; // side effect
+  num2 = num1 * num2; // no output here, just a side effect
 }
 ```
 
 - Side Effects: Effects the function has on data outside of itself (external to
-  its scope)
+  its scope).
 
 > Note: If you don't specify a return value, it will return `undefined`.
 
@@ -179,12 +195,11 @@ console.log(splitMe);
 
 What does the first one do? What does the second one do?
 
-Are there advantages to doing it the first way? What about the second way? Which
-one seems easier to understand?
+Are there advantages to doing it the first way? What about the second way, are there any disadvantages? 
 
-### You do: Write some functions (15 min / 0:40)
+### You do: Write some functions
 
-Open your code editor and spend 15 minutes writing some code and getting a feel
+Open your code editor and spend a few minutes writing some code and getting a feel
 for functions. Try and work through all of these, but at the very least do the
 first 5 and then 1 from each category.
 
@@ -192,42 +207,36 @@ Start with the basics for these.
 
 Write one function per bullet point. Write a function that:
 
-- Console logs "hello"
-- Console logs "world"
+- Console logs "hello world"
 - Takes a parameter called "name" and console logs it
 - Takes a parameter called "name" and console logs "hello" + name
 - Takes a parameter called "number" and multiplies it by itself, then console
   logs the result
 
-These functions should all return something. Each should:
+These functions should all return something. Log the result of each by storing it in a variable, then `console.log` the variable:
 
-- Take a number as a parameter and return itself squared.
+- Take a number as a parameter and return itself squared. 
 - Have 3 optional parameters, all numbers. Add all the numbers together. If the
   function is called without passing any numbers in, simply return 10.
 - Take a number and add some amount of zeroes to the end, returning it (make
   sure you return a number, not a string)
-- return a function that console logs 'hello world' (yes you can write functions
+- Return a function that console logs 'hello world' (yes you can write functions
   inside functions!)
 
-Also, write some functions with side effects.
-
-- Declare a variable, assigning a string to it. Then write a function that
-  modifies that string without returning anything.
-- Declare a variable, assigning an array that contains 5 numbers to it. Then
-  write a function that removes the first item from the array.
-
-Lastly:
+Return vs side effects:
 
 - Write two functions that do the same thing, but one returns the value and the
   other modifies a variable with side effects.
-  - The functions should both add the string "flabbergasted" on to the end of an
-    array
+- The functions should both add the string "flabbergasted" on to the end of an
+  array
 
-### Function Declarations and Expressions (10 min / 0:50)
+### Function Declarations and Expressions
 
-There are two ways to define a function...
+There are two ways to define a function.
 
 #### Declaration
+
+So far we've used the function declaration syntax to define functions:
 
 ```js
 function multiply(num1, num2) {
@@ -237,12 +246,13 @@ function multiply(num1, num2) {
 
 #### Expression
 
+We can also write them as function expressions:
+
 ```js
-var multiply = function(num1, num2) {
+const multiply = function(num1, num2) {
   return num1 * num2;
 };
 
-// var, let, and const are all valid here
 ```
 
 #### Declarations vs. Expressions
@@ -264,7 +274,7 @@ Both do the same thing and run the same chunk of code but they are different.
 While we call/reference functions defined through declarations and expressions
 the same way, they do have a subtle but important difference...
 
-### Hoisting (10 min / 1:00)
+### Hoisting
 
 Function declarations are processed before any code is executed, meaning you can
 call functions before they are declared in the flow of your code. This behavior
@@ -329,7 +339,7 @@ function declare() {
 You can read more about hoisting
 [here](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 
-### ES6 Features (10 min / 1:10)
+### ES6 Features
 
 #### Arrow Functions
 
@@ -337,52 +347,49 @@ Following the release of ECMAScript 6 (ES6) in 2015, anonymous functions can be
 written as "arrow functions", a syntax adapted from CoffeeScript.
 
 ```js
-var multiply = function(num1, num2) {
+var square = function(num1) {
   // function expression
-  return num1 * num2;
+  return num1 * num1;
 };
 ```
 
 What does this look like in ES6?
 
 ```js
-const multiply = (num1, num2) => {
-  return num1 * num2;
+// 1. drop the function keyword
+// 2. add a fat arrow between the parentheses and opening curly brace
+
+const square = (num1) => {
+  return num1 * num1;
 };
-```
-
-Or, to simplify it further..
-
-```js
-const multiply = (num1, num2) => num1 * num2;
 ```
 
 Arrow functions with a "concise" function body (no brackets and on one line)
 have "implicit return". This means you can leave out the `return` keyword and it
 still returns.
 
-However, this single line return can be faked with parentheses (NOT CURLY
-BRACKETS!)
-
 ```js
-const multiply = (num1, num2) => num1 * num2;
+// 3. if the function only returns one value, drop the curly braces and return keyword
+
+const square = (num1) => num1 * num1;
 ```
 
-## Break (10 min / 1:20)
+And lastly, to simplify it further..
+
+```js
+4. if the function only takes one parameter, drop the parentheses
+
+const square = num1 => num1 * num1;
+```
 
 ## Scope
 
-### What Is Scope? (15 min / 1:35)
+### What Is Scope?
 
-**In real life:** Your "scope" is what your eyes can see from wherever you're
+In **real life**, your "scope" is what your eyes can see from wherever you're
 standing.
 
-**In Javascript:** scope is...
-
-- Where a variable can be referenced/used.
-- A list of all variables that can be accessed from a given line of code.
-
-> Two ways of saying the same thing.
+In **Javascript** scope is where a variable can be referenced/used (i.e., all variables that can be accessed from a given line of code).
 
 #### Quick Example
 
@@ -416,7 +423,7 @@ console.log(anotherColor); // What should we see in the console?
 In Javascript, there are two types of scope: **global scope** and **local
 scope**.
 
-There are four simple rules to remember about scope in JS...
+There are five rules to remember about scope in JS...
 
 1. Variables created **without** the `var`, `let`, or `const` keywords, no
    matter where in a program, are placed in the global scope. :x:
@@ -427,9 +434,8 @@ There are four simple rules to remember about scope in JS...
 5. Variables created with `let` or `const` keywords have **block** scope.
 
 > One consequence of rule 3 is that variables defined outside of any function
-> are inherently global, even if the `var` keyword is used.
-
-![scope diagram](js-es5-scope-2.png)
+> are inherently global if the `var` keyword is used (`let` and `const` prevent pollution of the 
+global scope).
 
 Another way to say this...
 
@@ -439,9 +445,9 @@ Another way to say this...
 - However, a function can access all variables and functions defined inside the
   scope in which it is defined (which includes all outer scopes).
 
-### We Do: A More Complex Example (15 min / 1:50)
+### We Do: A More Complex Example
 
-Let's walk through this example in two steps...
+Let's walk through this example in two steps:
 
 1. Identify and diagram the scope of each variable.
 2. Determine whether each `console.log` will error out or not.
@@ -459,8 +465,8 @@ function playBaseball() {
   }
   var batterName = "Perry"; // What scope is this?
 
-  console.log(batterName); // Does this work?
-  console.log(pitcherName); // Does this work?
+  console.log('Batter from inside the function', batterName); // Does this work?
+  console.log('Pitcher from inside the function', pitcherName); // Does this work?
 }
 
 playBaseball();
@@ -468,21 +474,22 @@ playBaseball();
 console.log(teamCity); // Does this work?
 console.log(teamName); // Does this work?
 
-console.log(pitcherName); // Does this work?
 console.log(batterName); // Does this work?
+console.log(pitcherName); // Does this work?
+
 ```
 
 <details>
   <summary><strong>List of scopes for this example...</strong></summary>
 
 > `teamName` - global (no var)  
-> `teamCity` - global (not in a function)  
+> `teamCity` - global (`var` not in a function)  
 > `pitcherName` - block (no because const has block scope)  
 > `batterName` - local to `playBaseball`
 
 </details>
 
-### More on Hoisting (10 min / 2:00)
+### More on Hoisting
 
 #### Functions
 
@@ -528,9 +535,7 @@ function sayHello() {
 
 </details>
 
-### You do: Write your own (15 min / 2:15)
-
-> 10 minute exercise. 5 minute review
+### You do: Write your own
 
 Write a small piece of code that meets the following requirements. Identify and
 put a comment next to each variable identifying its scope.
@@ -568,12 +573,12 @@ local scope to enclose all variables within it.
   var profileID = 4011989;
 
   function logIn() {
-    var sessionID = "8675309";
-    var token;
+    const sessionID = "8675309";
+    let token;
     return decrypt(sessionID);
 
     function decrypt(string) {
-      var token = profileID;
+      token = profileID;
     }
     return token;
   }
@@ -583,8 +588,7 @@ local scope to enclose all variables within it.
 ```
 
 > NOTE: Using an IIFE would prevent you from being able to access variables and
-> functions within it from the console. Therefore, for now, you should refrain
-> from using it.
+> functions within it from the console.
 
 ---
 
@@ -598,79 +602,6 @@ local scope to enclose all variables within it.
 6. Explain how hoisting can affect functions.
 7. Explain how hoisting can affect variables.
 8. What does DRY mean?
-
-## Bonus: Test Your Scope Knowledge
-
-> 10 minutes exercise. 5 minutes review.
-
-Answer the questions below the following code snippet. The letters in the
-questions and answer choices reference lines in the snippet.
-
-```js
-/* A */
-var username = "XxXskaterBoi2004XxX";
-/* B */
-function logIn() {
-  /* C */
-  var sessionID = "8675309";
-  /* D */
-  return decrypt(sessionID);
-  /* E */
-  function decrypt(string) {
-    /* F */
-    var token = profileID;
-    /* G */
-  }
-  /* H */
-}
-/* I */
-logIn();
-/* J */
-var profileID = 4011989;
-/* K */
-```
-
-1. The variable `username` **has a value** on which lines? (That is: on which
-   lines will `console.log`ing it not return `undefined`?)
-   - A, B, I, J, K
-   - A and B
-   - All lines
-   - All lines except A
-2. The variable `profileID` **has a value** on which lines?
-   - A, B, I, J, K
-   - K
-   - All lines
-   - All lines except A
-3. The variable `profileID` **is accessible** on which lines? (That is: on which
-   lines can it be `console.log`ged without throwing an error?)
-   - A, B, I, J, K
-   - K
-   - All lines
-   - All lines except A
-4. The variable `sessionID` **is accessible** on which lines?
-   - C, D, E, F, G, H
-   - C, D, E, H
-   - All lines
-   - All lines except F and G
-5. The function `decrypt` **is accessible** on which lines?
-   - C, D, E, F, G, H
-   - C, D, E, H
-   - All lines
-   - All lines except F and G
-
-<details>
-
-  <summary><strong>When you've finished...</strong></summary>
-
-1. All lines except A. The variable is available on all lines due to hoisting,
-   but it only has a value after `username =`
-2. K. The variable is available on all lines due to hoisting, but it only has a
-   value after `profileID =`
-3. All lines.
-4. C, D, E, F, G, H
-5. C, D, E, F, G, H
-
-</details>
 
 ## References
 
