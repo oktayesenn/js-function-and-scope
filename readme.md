@@ -377,7 +377,7 @@ const square = (num1) => num1 * num1;
 And lastly, to simplify it further..
 
 ```js
-4. if the function only takes one parameter, drop the parentheses
+// 4. if the function only takes one parameter, drop the parentheses
 
 const square = num1 => num1 * num1;
 ```
