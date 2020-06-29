@@ -185,7 +185,7 @@ console.log(newString);
 let splitMe = "I am the eggman I am the walrus";
 
 function splitString() {
-  splitMe.split(" ");
+  splitMe = splitMe.split(" ");
 }
 
 splitString();
