@@ -200,27 +200,26 @@ Are there advantages to doing it the first way? What about the second way, are t
 ### You do: Write some functions
 
 Open your code editor and spend a few minutes writing some code and getting a feel
-for functions. Try and work through all of these, but at the very least do the
-first 5 and then 1 from each category.
+for functions.
 
 These functions should all return something. **Log the result of each by storing it in a variable, then `console.log` the variable:**
 
-- Returns "hello world"
-- Takes a parameter called "name" and returns it
-- Takes a parameter called "name" and returns "hello" + name
-- Takes a parameter called "number" and return itself squared (multiply it by itself). 
-- Have 3 optional parameters, all numbers. Add all the numbers together. If the
-  function is called without passing any numbers in, simply return 10.
-- Take a number and add some amount of zeroes to the end, returning it (make
+1. Returns "hello world"
+1. Takes a parameter called "name" and returns it
+1. Takes a parameter called "name" and returns "hello" + name
+1. Takes a parameter called "number" and return itself squared (multiply it by itself). 
+1. Have 3 optional parameters, all numbers. Add all the numbers together. If the
+  function is called without passing any numbers in, the result should be 10.
+1. Take a number and add some amount of zeroes to the end, returning it (make
   sure you return a number, not a string)
-- Return a function that console logs 'hello world' (yes you can write functions
+1. Return a function that console logs 'hello world' (yes you can write functions
   inside functions!)
 
 Return vs side effects:
 
-- Write a function that adds the string "flabbergasted" on to the end of an
+1. Write a function that adds the string "flabbergasted" on to the end of an
   array that is stored in a variable (resulting in a _side effect_).  Log the array in the console.
-- Write the same function _without_ the side effect by returning an array with the new the value added
+1. Write the same function _without_ the side effect by returning an array with the new the value added
   to the end of it.  Make sure your function accepts the array as an argument!
 
 
