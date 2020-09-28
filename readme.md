@@ -205,7 +205,6 @@ for functions.
 These functions should all return something. **Log the result of each by storing it in a variable, then `console.log` the variable:**
 
 1. Returns "hello world"
-1. Takes a parameter called "name" and returns it
 1. Takes a parameter called "name" and returns "hello" + name
 1. Takes a parameter called "number" and return itself squared (multiply it by itself). 
 1. Have 3 optional parameters, all numbers. Add all the numbers together. If the
