@@ -203,19 +203,12 @@ Open your code editor and spend a few minutes writing some code and getting a fe
 for functions. Try and work through all of these, but at the very least do the
 first 5 and then 1 from each category.
 
-Start with the basics for these.
+These functions should all return something. **Log the result of each by storing it in a variable, then `console.log` the variable:**
 
-Write one function per bullet point. Write a function that:
-
-- Console logs "hello world"
-- Takes a parameter called "name" and console logs it
-- Takes a parameter called "name" and console logs "hello" + name
-- Takes a parameter called "number" and multiplies it by itself, then console
-  logs the result
-
-These functions should all return something. Log the result of each by storing it in a variable, then `console.log` the variable:
-
-- Take a number as a parameter and return itself squared. 
+- Returns "hello world"
+- Takes a parameter called "name" and returns it
+- Takes a parameter called "name" and returns "hello" + name
+- Takes a parameter called "number" and return itself squared (multiply it by itself). 
 - Have 3 optional parameters, all numbers. Add all the numbers together. If the
   function is called without passing any numbers in, simply return 10.
 - Take a number and add some amount of zeroes to the end, returning it (make
@@ -225,10 +218,11 @@ These functions should all return something. Log the result of each by storing i
 
 Return vs side effects:
 
-- Write two functions that do the same thing, but one returns the value and the
-  other modifies a variable with side effects.
-- The functions should both add the string "flabbergasted" on to the end of an
-  array
+- Write a function that adds the string "flabbergasted" on to the end of an
+  array that is stored in a variable (resulting in a _side effect_).  Log the array in the console.
+- Write the same function _without_ the side effect by returning an array with the new the value added
+  to the end of it.  Make sure your function accepts the array as an argument!
+
 
 ### Function Declarations and Expressions
 
