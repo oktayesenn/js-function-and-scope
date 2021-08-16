@@ -425,6 +425,22 @@ Here's a code snippet that demonstrates some of JavaScript's fundamental rules
 of scope...
 
 ```js
+if (true) {
+  var color = "purple";
+}
+
+console.log(color); // What should we see in the console?
+```
+
+```js
+if (true) {
+  const color = "gray";
+}
+
+console.log(color); // What should we see in the console?
+```
+
+```js
 let color;
 
 function getColor() {
@@ -435,11 +451,11 @@ getColor();
 console.log(color); // What should we see in the console?
 ```
 
-Let's see what happens if we add the `var` keyword...
+Let's see what happens if we add the `const` keyword...
 
 ```js
 function getAnotherColor() {
-  var anotherColor = "green";
+  const anotherColor = "green";
 }
 
 getAnotherColor();
@@ -454,7 +470,7 @@ scope**.
 There are five rules to remember about scope in JS...
 
 1. Variables created **without** the `var`, `let`, or `const` keywords, no
-   matter where in a program, are placed in the global scope. :x:
+   matter where in a program, are placed in the global scope.
 2. Variables created **with** the `var`, `let`, or `const` keywords are created
    in the current local scope.
 3. All functions create a new local scope.
@@ -475,6 +491,27 @@ Another way to say this...
 
 > In other words, you can reach out of your current scope into an outside scope,
 > but you cannot reach into an inside scope.
+
+### Closures
+
+A frequent interview topic for junior web devs is closures, which have a lot to
+do with our current discussion on scope. A closure is when an inner function has
+access to an outer function's scope.
+
+```js
+function greet() {
+  // locally scoped variable
+  const name = "Michael Scott";
+  // inner function
+  function sayHello() {
+    // inner function has access to parent's lexical environment
+    console.log(`Hello ${name}`);
+  }
+  sayHello();
+}
+
+greet();
+```
 
 ### We Do: A More Complex Example
 
@@ -514,8 +551,8 @@ console.log(pitcherName); // Does this work?
   <summary><strong>List of scopes for this example...</strong></summary>
 
 > `teamName` - global (no var)  
-> `teamCity` - local (`var` not in a function)  
-> `teamColors` - local (`const` unenclosed in a code block) `pitcherName` -
+> `teamCity` - global (`var` not in a function)  
+> `teamColors` - global (`const` unenclosed in a code block) `pitcherName` -
 > block (no because const has block scope)  
 > `batterName` - local to `playBaseball` function
 
