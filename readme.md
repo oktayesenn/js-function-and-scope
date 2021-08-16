@@ -502,7 +502,7 @@ Another way to say this...
 
 ### Closures
 
-A frequent interview topic for junior web devs is closures, which have a lot to
+A frequent interview topic for junior web devs is [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures), which have a lot to
 do with our current discussion on scope. A closure is when an inner function has
 access to an outer function's scope.
 
