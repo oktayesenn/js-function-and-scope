@@ -31,9 +31,9 @@ too.
 
 Let's create an environment to learn about JS Functions. 
 
-1. In your lessons or lectures folder, create an index.html and functions-basics.js
-1. Add some boilerplate to your HTML file and connect your JS file.
-1. Console.log something from your JS file so that you know it's connected.
+1. In your lessons or lectures folder, create an `index.html` and `functions-basics.js`.
+1. Add some boilerplate to your HTML file and connect your JS file to your HTML.
+1. `console.log` something from your JS file so that you know it's connected.
 
 ## Functions
 
