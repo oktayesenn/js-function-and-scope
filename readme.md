@@ -27,6 +27,14 @@ too.
 - Define hoisting
 - Describe scope and how it governs how data is able to be accessed in code
 
+## Set Up
+
+Let's create an environment to learn about JS Functions. 
+
+1. In your lessons or lectures folder, create an index.html and functions-basics.js
+1. Add some boilerplate to your HTML file and connect your JS file.
+1. Console.log something from your JS file so that you know it's connected.
+
 ## Functions
 
 **What is a Function?**
