@@ -652,7 +652,7 @@ local scope to enclose all variables within it.
 ```
 
 > NOTE: Using an IIFE would prevent you from being able to access variables and
-> functions within it from the console.
+> functions within it from the console, as they're all scoped to the IIFE.
 
 ---
 
