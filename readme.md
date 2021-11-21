@@ -27,6 +27,14 @@ too.
 - Define hoisting
 - Describe scope and how it governs how data is able to be accessed in code
 
+## Set Up
+
+Let's create an environment to learn about JS Functions. 
+
+1. In your lessons or lectures folder, create an `index.html` and `functions-basics.js`.
+1. Add some boilerplate to your HTML file and connect your JS file to your HTML.
+1. `console.log` something from your JS file so that you know it's connected.
+
 ## Functions
 
 **What is a Function?**
@@ -53,7 +61,7 @@ Notice that there is a pattern in JavaScript syntax.
 // followed by parens
 // followed by curly braces containing a code block
 
-for (/* expressions */) { 
+for (/* expressions */) {
   /* code block */
 }
 
@@ -70,7 +78,8 @@ function (/* parameters */) {
 }
 ```
 
-Often, we give our functions a descriptive name as well.  The name follows the `function` keyword.
+Often, we give our functions a descriptive name as well. The name follows the
+`function` keyword.
 
 ```js
 function multiply(/* parameters */) {
@@ -80,7 +89,9 @@ function multiply(/* parameters */) {
 
 #### Parameters
 
-_Parameters_ are variables listed as a part of the function definition.  The names given to parameters are used to access the values we pass to the function known as _arguments_.
+_Parameters_ are variables listed as a part of the function definition. The
+names given to parameters are used to access the values we pass to the function
+known as _arguments_.
 
 ```js
 function multiply(num1, num2) {
@@ -88,13 +99,16 @@ function multiply(num1, num2) {
   // num1 and num2 are parameters
 }
 ```
-When we _call_ (or _invoke_) a function and pass values into it, those values are the function's arguments.
+
+When we _call_ (or _invoke_) a function and pass values into it, those values
+are the function's arguments.
 
 ```js
-multiply(2, 3) // 2 and 3 are arguments
+multiply(2, 3); // 2 and 3 are arguments
 ```
 
-Arguments map to the parameter names by the order they appear in the parentheses when the function is invoked.
+Arguments map to the parameter names by the order they appear in the parentheses
+when the function is invoked.
 
 <img src="https://media.git.generalassemb.ly/user/17300/files/4e9fb780-7258-11ea-8529-4c45b37401e3" alt="figure showing how arguments map to parameters"/>
 
@@ -122,7 +136,27 @@ exponentiate(4)
 
 ### Calling vs Referencing a Function
 
-Let's say we've defined a function. Now we need to call it...
+Let's say we've defined a function.
+
+```js
+// define a function
+function multiple(num1 = 1, num2 = 1) {
+  return num1 * num2;
+}
+```
+
+Now we need to call it. When we call, or _invoke_, a function, we tell it to run
+and do its thing. In more technical terms, we are telling our JavaScript engine
+(Google V8 engine in this case, which is the
+[ECMAScript engine](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
+that powers the Chrome browser as well as Node.js) to add the function to the
+top of its
+[call stack](https://www.javascripttutorial.net/javascript-call-stack/). The
+call stack is what the engine uses to manage execution contexts (which functions
+it needs to be executing).
+
+> You might hear the `()` described as "clappers" -- this might help you
+> remember that your functions need `()` to actually run.
 
 ```js
 // call a function, passing no arguments
@@ -137,18 +171,24 @@ multiply;
 
 #### Output and Side Effects
 
+The output of a function is determined by the value of what it returns. This
+value is determined by whatever comes after a special reserved word, `return`.
+
+Functions can return ANYTHING -- a primitive data type, a reference type, and
+even other functions.
+
+TLDR -- Output: What the function evaluates to - noted by keyword `return`.
+
+> If a function returns a value, you can store that value in a variable.
+
 ```js
 function multiply(num1, num2) {
   return num1 * num2; // Output
 }
 
-const result = multiply(6, 5)
-console.log(result) // What is output?
+const result = multiply(6, 5);
+console.log(result); // What is output?
 ```
-
-- Output: What the function evaluates to - noted by keyword `return`
-
-> If a function returns a value, you can store that value in a variable.
 
 ```js
 let num2 = 5;
@@ -195,32 +235,36 @@ console.log(splitMe);
 
 What does the first one do? What does the second one do?
 
-Are there advantages to doing it the first way? What about the second way, are there any disadvantages? 
+Are there advantages to doing it the first way? What about the second way, are
+there any disadvantages? 🤔
 
 ### You do: Write some functions
 
-Open your code editor and spend a few minutes writing some code and getting a feel
-for functions.
+Open your code editor and spend a few minutes writing some code and getting a
+feel for functions.
 
-These functions should all return something. **Log the result of each by storing it in a variable, then `console.log` the variable:**
+These functions should all return something. **Log the result of each by storing
+it in a variable, then `console.log` the variable:**
 
 1. Returns "hello world"
 1. Takes a parameter called "name" and returns "hello" + name
-1. Takes a parameter called "number" and return itself squared (multiply it by itself). 
+1. Takes a parameter called "number" and return itself squared (multiply it by
+   itself).
 1. Have 3 optional parameters, all numbers. Add all the numbers together. If the
-  function is called without passing any numbers in, the result should be 10.
+   function is called without passing any numbers in, the result should be 10.
 1. Take a number and add some amount of zeroes to the end, returning it (make
-  sure you return a number, not a string)
-1. Return a function that console logs 'hello world' (yes you can write functions
-  inside functions!)
+   sure you return a number, not a string)
+1. Return a function that console logs 'hello world' (yes you can write
+   functions inside functions!)
 
 Return vs side effects:
 
 1. Write a function that adds the string "flabbergasted" on to the end of an
-  array that is stored in a variable (resulting in a _side effect_).  Log the array in the console.
-1. Write the same function _without_ the side effect by returning an array with the new the value added
-  to the end of it.  Make sure your function accepts the array as an argument!
-
+   array that is stored in a variable (resulting in a _side effect_). Log the
+   array in the console.
+1. Write the same function _without_ the side effect by returning an array with
+   the new the value added to the end of it. Make sure your function accepts the
+   array as an argument!
 
 ### Function Declarations and Expressions
 
@@ -241,10 +285,9 @@ function multiply(num1, num2) {
 We can also write them as function expressions:
 
 ```js
-const multiply = function(num1, num2) {
+const multiply = function (num1, num2) {
   return num1 * num2;
 };
-
 ```
 
 #### Declarations vs. Expressions
@@ -259,8 +302,8 @@ Both do the same thing and run the same chunk of code but they are different.
 
 **What differences do you notice?**
 
-- **Function declarations** define functions without assigning them to
-  variables.
+- **Function declarations** define functions without assigning them to variables
+  using `var`/`let`/`const`.
 - **Function expressions** assign _anonymous functions_ to variables.
 
 While we call/reference functions defined through declarations and expressions
@@ -280,7 +323,7 @@ What do you think will happen when we run the below code...
 ```js
 multiply(3, 5);
 
-var multiply = function(num1, num2) {
+const multiply = function (num1, num2) {
   return num1 * num2;
 };
 // function expression
@@ -308,7 +351,7 @@ below example?
 // What happens when we run this function at this point in the code?
 express();
 
-var express = function() {
+const express = function () {
   console.log("Function expression called.");
 };
 ```
@@ -316,7 +359,7 @@ var express = function() {
 What about when we run this example?
 
 ```js
-var express = function() {
+const express = function () {
   console.log("Function expression called.");
 };
 
@@ -339,7 +382,7 @@ Following the release of ECMAScript 6 (ES6) in 2015, anonymous functions can be
 written as "arrow functions", a syntax adapted from CoffeeScript.
 
 ```js
-var square = function(num1) {
+const square = function (num1) {
   // function expression
   return num1 * num1;
 };
@@ -371,7 +414,7 @@ And lastly, to simplify it further..
 ```js
 // 4. if the function only takes one parameter, drop the parentheses
 
-const square = num1 => num1 * num1;
+const square = (num1) => num1 * num1;
 ```
 
 ## Scope
@@ -381,15 +424,32 @@ const square = num1 => num1 * num1;
 In **real life**, your "scope" is what your eyes can see from wherever you're
 standing.
 
-In **Javascript** scope is where a variable can be referenced/used (i.e., all variables that can be accessed from a given line of code).
+In **JavaScript** scope is where a variable can be referenced/used (i.e., all
+variables that can be accessed from a given line of code).
 
 #### Quick Example
 
-Here's a code snippet that demonstrates some of Javascript's fundamental rules
+Here's a code snippet that demonstrates some of JavaScript's fundamental rules
 of scope...
 
 ```js
-var color;
+if (true) {
+  var color = "purple";
+}
+
+console.log(color); // What should we see in the console?
+```
+
+```js
+if (true) {
+  const color = "gray";
+}
+
+console.log(color); // What should we see in the console?
+```
+
+```js
+let color;
 
 function getColor() {
   color = "red";
@@ -399,11 +459,11 @@ getColor();
 console.log(color); // What should we see in the console?
 ```
 
-Let's see what happens if we add the `var` keyword...
+Let's see what happens if we add the `const` keyword...
 
 ```js
 function getAnotherColor() {
-  var anotherColor = "green";
+  const anotherColor = "green";
 }
 
 getAnotherColor();
@@ -412,13 +472,13 @@ console.log(anotherColor); // What should we see in the console?
 
 #### Rules of Scope in JS
 
-In Javascript, there are two types of scope: **global scope** and **local
+In JavaScript, there are two types of scope: **global scope** and **local
 scope**.
 
 There are five rules to remember about scope in JS...
 
 1. Variables created **without** the `var`, `let`, or `const` keywords, no
-   matter where in a program, are placed in the global scope. :x:
+   matter where in a program, are placed in the global scope.
 2. Variables created **with** the `var`, `let`, or `const` keywords are created
    in the current local scope.
 3. All functions create a new local scope.
@@ -426,8 +486,8 @@ There are five rules to remember about scope in JS...
 5. Variables created with `let` or `const` keywords have **block** scope.
 
 > One consequence of rule 3 is that variables defined outside of any function
-> are inherently global if the `var` keyword is used (`let` and `const` prevent pollution of the 
-global scope).
+> are inherently global if the `var` keyword is used (`let` and `const` prevent
+> pollution of the global scope).
 
 Another way to say this...
 
@@ -436,6 +496,30 @@ Another way to say this...
   of the function.
 - However, a function can access all variables and functions defined inside the
   scope in which it is defined (which includes all outer scopes).
+
+> In other words, you can reach out of your current scope into an outside scope,
+> but you cannot reach into an inside scope.
+
+### Closures
+
+A frequent interview topic for junior web devs is [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures), which have a lot to
+do with our current discussion on scope. A closure is when an inner function has
+access to an outer function's scope.
+
+```js
+function greet() {
+  // locally scoped variable
+  const name = "Michael Scott";
+  // inner function
+  function sayHello() {
+    // inner function has access to parent's lexical environment
+    console.log(`Hello ${name}`);
+  }
+  sayHello();
+}
+
+greet();
+```
 
 ### We Do: A More Complex Example
 
@@ -447,6 +531,7 @@ Let's walk through this example in two steps:
 ```js
 teamName = "Giraffes"; // What scope is this?
 var teamCity = "Sioux Falls"; // What scope is this?
+const teamColors = "Brown and Yellow"; // What scope is this?
 
 function playBaseball() {
   console.log("From " + teamCity + "..."); // Does this work?
@@ -455,10 +540,10 @@ function playBaseball() {
   if (teamCity === "Sioux Falls") {
     const pitcherName = "Meg"; // What scope is this?
   }
-  var batterName = "Perry"; // What scope is this?
+  const batterName = "Perry"; // What scope is this?
 
-  console.log('Batter from inside the function', batterName); // Does this work?
-  console.log('Pitcher from inside the function', pitcherName); // Does this work?
+  console.log("Batter from inside the function", batterName); // Does this work?
+  console.log("Pitcher from inside the function", pitcherName); // Does this work?
 }
 
 playBaseball();
@@ -468,7 +553,6 @@ console.log(teamName); // Does this work?
 
 console.log(batterName); // Does this work?
 console.log(pitcherName); // Does this work?
-
 ```
 
 <details>
@@ -476,8 +560,9 @@ console.log(pitcherName); // Does this work?
 
 > `teamName` - global (no var)  
 > `teamCity` - global (`var` not in a function)  
-> `pitcherName` - block (no because const has block scope)  
-> `batterName` - local to `playBaseball`
+> `teamColors` - global (`const` unenclosed in a code block) `pitcherName` -
+> block (no because const has block scope)  
+> `batterName` - local to `playBaseball` function
 
 </details>
 
@@ -485,14 +570,14 @@ console.log(pitcherName); // Does this work?
 
 #### Functions
 
-A Javascript feature that may impact scope is **hoisting**. This applies to
-Javascript functions.
+A JavaScript feature that may impact scope is **hoisting**. This applies to
+JavaScript functions.
 
-Recall that there are two ways to declare functions in Javascript, **function
+Recall that there are two ways to declare functions in JavaScript, **function
 declarations** and **function expressions**.
 
 ```js
-var sayHello = function() {
+var sayHello = function () {
   console.log("Hello!");
 };
 
@@ -532,8 +617,11 @@ function sayHello() {
 Write a small piece of code that meets the following requirements. Identify and
 put a comment next to each variable identifying its scope.
 
-- secretEncoder: Takes a string name input and modifies it by substituting each letter in the string with a unique number or new character and returns the "encoded" string.
-- secretDecoderRing: Takes an "encoded" string and returns the original decoded value.
+- secretEncoder: Takes a string name input and modifies it by substituting each
+  letter in the string with a unique number or new character and returns the
+  "encoded" string.
+- secretDecoderRing: Takes an "encoded" string and returns the original decoded
+  value.
 
 ### Bonus: Immediately-Invoked Function Expressions
 
@@ -550,11 +638,11 @@ loaded into the browser, immediately invokes itself and thereby creates a new
 local scope to enclose all variables within it.
 
 ```js
-(function() {
+(function () {
   // IIFE
 
-  var username = "XxXskaterBoi2004XxX";
-  var profileID = 4011989;
+  const username = "XxXskaterBoi2004XxX";
+  const profileID = 4011989;
 
   function logIn() {
     const sessionID = "8675309";
@@ -572,13 +660,13 @@ local scope to enclose all variables within it.
 ```
 
 > NOTE: Using an IIFE would prevent you from being able to access variables and
-> functions within it from the console.
+> functions within it from the console, as they're all scoped to the IIFE.
 
 ---
 
 ## Review Questions
 
-1. What is a functions in javascript and how can they be useful?
+1. What is a functions in JavaScript and how can they be useful?
 2. How is a side effect different from an output?
 3. What is the difference between calling and referencing a function?
 4. How is a function declaration different than a function expression?
@@ -589,5 +677,5 @@ local scope to enclose all variables within it.
 
 ## References
 
-- [Understanding Scope and Context in JavaScript](http://ryanmorr.com/understanding-scope-and-context-in-javascript/)
-- [Everything you wanted to know about JavaScript scope](http://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/)
+- [Understanding Scope and Context in JavaScript](http://ryanmorr.com/understanding-scope-and-context-in-JavaScript/)
+- [Everything you wanted to know about JavaScript scope](http://toddmotto.com/everything-you-wanted-to-know-about-JavaScript-scope/)
