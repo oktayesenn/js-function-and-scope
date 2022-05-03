@@ -31,9 +31,12 @@ too.
 
 Let's create an environment to learn about JS Functions. 
 
-1. In your lessons or lectures folder, create an `index.html` and `functions-basics.js`.
-1. Add some boilerplate to your HTML file and connect your JS file to your HTML.
-1. `console.log` something from your JS file so that you know it's connected.
+1. In your sei folder, create a new directory called `js-functions`
+2. `cd` into `js-functions`
+3. Create an `index.html` and `functions-basics.js`.
+4. Add some boilerplate to your HTML file and connect your JS file to your HTML.
+5. `console.log` something from your JS file so that you know it's connected.
+6. `open index.html`
 
 ## Functions
 
