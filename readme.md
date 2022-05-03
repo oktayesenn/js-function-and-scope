@@ -615,17 +615,6 @@ function sayHello() {
 
 </details>
 
-### You do: Write your own
-
-Write a small piece of code that meets the following requirements. Identify and
-put a comment next to each variable identifying its scope.
-
-- secretEncoder: Takes a string name input and modifies it by substituting each
-  letter in the string with a unique number or new character and returns the
-  "encoded" string.
-- secretDecoderRing: Takes an "encoded" string and returns the original decoded
-  value.
-
 ### Bonus: Immediately-Invoked Function Expressions
 
 When you are working on larger, more complex applications (particularly ones
