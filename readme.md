@@ -482,7 +482,7 @@ There are five rules to remember about scope in JS...
 
 1. Variables created **without** the `var`, `let`, or `const` keywords, no
    matter where in a program, are placed in the global scope.
-2. Variables created **with** the `var`, `let`, or `const` keywords are created
+2. Variables created **with** the `let`, or `const` keywords are created
    in the current local scope.
 3. All functions create a new local scope.
 4. The current scope includes all outer (enclosing) scopes.
